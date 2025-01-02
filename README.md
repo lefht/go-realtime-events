@@ -4,4 +4,4 @@ This simple Go code shows how to stream real-time events from a Go server to a w
 
 ## Results
 
-![]["real-time-events.gif"]
+![Real-Time Events](real-time-events.gif)
