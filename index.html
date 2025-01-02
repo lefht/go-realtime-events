@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Real-time response:</h2>
+    <p id="resp"></p>
+    <script>
+        var source = new EventSource("localhost:8080/events");
+        source.onmessage = function(event) {
+            document.getElementById("resp").innerHTML = event.data + " ";
+        };
+    </script>
+</body>
+</html>
