@@ -37,7 +37,7 @@ func events(w http.ResponseWriter, r *http.Request) {
 		content := fmt.Sprintf("data: %s\n\n", scanner.Text())
 		w.Write([]byte(content))
 		w.(http.Flusher).Flush()
-		time.Sleep(time.Millisecond * 420)
+		time.Sleep(time.Millisecond * 400)
 	}
 
 	if err := cmd.Wait(); err != nil {
