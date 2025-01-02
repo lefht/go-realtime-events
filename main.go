@@ -20,7 +20,7 @@ func events(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/event-stream")
 
 	// run ping command and get the output
-	cmd := exec.Command("ping", "google.com")
+	cmd := exec.Command("ping", "-c 4", "google.com")
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
 		http.Error(w, "Failed to get command output", http.StatusInternalServerError)
@@ -50,9 +50,7 @@ func withCORS(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
 		w.Header().Set("Access-Control-Allow-Origin", "*")
-
 		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 		if r.Method == "OPTIONS" {
